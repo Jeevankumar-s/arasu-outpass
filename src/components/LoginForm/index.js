@@ -27,10 +27,15 @@ class LoginForm extends Component {
     const {history} = this.props
 
     try {
-      const res = await axios.post('http://localhost:3000/api/users/login', {
-        username,
-        password,
-      })
+      const res = await axios.post(
+        'https://govt-server-3d3r.onrender.com/api/users/login',
+        // 'http://localhost:3000/api/users/login',
+        {
+          username,
+          password,
+        },
+      )
+      console.log(res.data)
 
       if (res.data.validation) {
         let user = ''
@@ -107,7 +112,7 @@ class LoginForm extends Component {
         <form className="form-container" onSubmit={this.submitForm}>
           <div className="login-image-container">
             <img
-              src="/img/logo.webp"
+              src="https://yt3.googleusercontent.com/ytc/AIdro_lTgZhoIuQC9fMoZTT7b6V3cuSLNHEYPF_Jh350YZVMZA=s900-c-k-c0x00ffffff-no-rj"
               className="login-website-logo-desktop-image"
               alt="website logo"
             />

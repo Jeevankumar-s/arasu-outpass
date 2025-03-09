@@ -62,7 +62,8 @@ class index extends Component {
     } = this.state
     try {
       const res = await axios.post(
-        'http://localhost:3000/api/outpass/outpass',
+        'https://govt-server-3d3r.onrender.com/api/outpass/outpass',
+        // 'http://localhost:3000/api/outpass/outpass',
         {
           name,
           registernumber,
@@ -232,7 +233,6 @@ class index extends Component {
                   id="inputAddress"
                   placeholder="Enter Valid Reason"
                   onChange={this.onChangereason}
-                  col="10"
                 />
               </div>
               <div className="col-12 d-flex justify-content-center">

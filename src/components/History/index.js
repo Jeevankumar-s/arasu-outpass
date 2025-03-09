@@ -24,8 +24,10 @@ class index extends Component {
 
     const apiUrl =
       user === 'student'
-        ? `http://localhost:3000/api/outpass/history/${username}`
-        : 'http://localhost:3000/api/outpass/history'
+        ? `https://govt-server-3d3r.onrender.com/api/outpass/history/${username}`
+        : 'https://govt-server-3d3r.onrender.com/api/outpass/history'
+
+    // const apiUrl = user === 'student' ? `http://localhost:3000/api/outpass/history/${username}` : 'http://localhost:3000/api/outpass/history'
 
     fetch(apiUrl)
       .then(response => {
@@ -47,7 +49,7 @@ class index extends Component {
   handleStaffAccept = id => {
     axios
       .post(
-        `http://localhost:3000/api/outpass/outpass/${id}/staff-approve`,
+        `https://govt-server-3d3r.onrender.com/api/outpass/outpass/${id}/staff-approve`,
       )
       .then(response => {
         if (response.data.success) {
@@ -67,7 +69,7 @@ class index extends Component {
   handleStaffDecline = id => {
     axios
       .post(
-        `http://localhost:3000/api/outpass/outpass/${id}/staff-decline`,
+        `https://govt-server-3d3r.onrender.com/api/outpass/outpass/${id}/staff-decline`,
       )
       .then(response => {
         if (response.data.success) {
@@ -89,6 +91,7 @@ class index extends Component {
   handleAccept = id => {
     this.setState({loading: true})
     axios
+      // .post(`https://govt-server-3d3r.onrender.com/api/outpass/outpass/${id}/accept`)
       .post(`http://localhost:3000/api/outpass/outpass/${id}/accept`)
       .then(response => {
         if (response.data.success) {
@@ -113,12 +116,11 @@ class index extends Component {
     const confirmDecline = window.confirm(
       'Are you sure you want to decline this outpass?',
     )
-    
 
     if (confirmDecline) {
       axios
         .post(
-          `http://localhost:3000/api/outpass/outpass/${id}/decline`,
+          `https://govt-server-3d3r.onrender.com/api/outpass/outpass/${id}/decline`,
         )
         .then(response => {
           if (response.data.success) {
