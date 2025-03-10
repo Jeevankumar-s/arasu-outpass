@@ -91,8 +91,10 @@ class index extends Component {
   handleAccept = id => {
     this.setState({loading: true})
     axios
-      // .post(`https://govt-server-3d3r.onrender.com/api/outpass/outpass/${id}/accept`)
-      .post(`http://localhost:3000/api/outpass/outpass/${id}/accept`)
+      .post(
+        `https://govt-server-3d3r.onrender.com/api/outpass/outpass/${id}/accept`,
+      )
+      // .post(`http://localhost:3000/api/outpass/outpass/${id}/accept`)
       .then(response => {
         if (response.data.success) {
           // Update the UI to reflect the accepted outpass
